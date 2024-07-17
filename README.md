@@ -1,4 +1,4 @@
-# 'Φ' Maths & Statistics Lab Dashboard
+# 'Φ' Maths & Statistics Lab Database
 
 This project is a relational database designed for the educational platform of ['Φ' Maths & Statistics Lab](https://phi.edu.gr/). The database captures various aspects of the business operations, including data analysis projects, university courses, and secondary school lessons. This provides an overview of the database schema, data flow, and instructions for setting up and using the database.
 
