@@ -163,7 +163,7 @@ The database consists of the following tables:
 ## Usage
 
 - Insert, update, and query data as required to manage projects, students, customers, courses, lesson plans, payments, and income.
-- Example SQL queries can be found in the `queries.sql` file.
+- Example SQL queries can be found in the `queries` folder.
 
 ## Queries and Reports
 
@@ -172,8 +172,6 @@ You can run various SQL queries to generate reports, such as:
 - List of students enrolled in a specific course.
 - Details of all projects undertaken within a specific timeframe.
 
-Example queries are provided in the `queries.sql` file.
+Example queries are provided in the `queries` folder.
 
 ## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
