@@ -23,7 +23,7 @@ The database structure is designed to efficiently manage information related to 
 
 ## Database Schema
 
-The database consists of the following tables:
+The database consists of the following tables (see [schema](schema.png)):
 - `projects`
 - `plans`
 - `courses`
