@@ -177,7 +177,3 @@ Example queries are provided in the `queries.sql` file.
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to customize this README to better fit your specific project needs and personal preferences.
