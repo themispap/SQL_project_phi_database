@@ -163,7 +163,6 @@ The database consists of the following tables:
 ## Usage
 
 - Insert, update, and query data as required to manage projects, students, customers, courses, lesson plans, payments, and income.
-- Example SQL queries can be found in the `queries` folder.
 
 ## Queries and Reports
 
