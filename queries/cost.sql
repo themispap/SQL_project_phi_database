@@ -1,10 +1,14 @@
+-- replace the {start} with the start date of the selected academic year ('YYYY-MM-DD')
+-- replace the {stop} with the end date of the selected academic year ('YYYY-MM-DD')
+-- replace the {acad_year} with the selected academic year ('YYYY-YYYY')
+
 DROP TABLE IF EXISTS data_tab;
 DROP TABLE IF EXISTS month_tab;
 
 SELECT TO_CHAR(issue_date, 'Mon YY') AS pay_date, SUM(amount) 
 INTO TEMPORARY data_tab
 FROM payments
-WHERE (business OR business = NOT %s) AND paid AND issue_date >= {start} AND issue_date <= {stop}
+WHERE paid AND issue_date >= {start} AND issue_date <= {stop}
 GROUP BY TO_CHAR(issue_date, 'Mon YY');
 
 SELECT date {start} + interval '1' month * s.a AS order_date,
