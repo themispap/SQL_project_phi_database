@@ -174,7 +174,7 @@ You can run various SQL queries to generate reports, such as:
   | ... | ... | ... | ... | ... |
   | ... | ... | ... | ... | ... |
   
-- Monthly cost for the selected academic year ([open query](queries/cost.sql))
+- Monthly revenue ([open query](queries/income.sql)) and cost ([open query](queries/cost.sql)) for the selected academic year
 
   | month | cost |
   |-------|------|
