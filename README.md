@@ -174,7 +174,13 @@ You can run various SQL queries to generate reports, such as:
   | ... | ... | ... | ... | ... |
   | ... | ... | ... | ... | ... |
   
-- Total income and expenses for a given period.
+- Monthly cost for the selected academic year ([open query](queries/cost.sql))
+
+  | month | cost |
+  |-------|------|
+  | ... | ... |
+  | ... | ... |
+  
 - List of students enrolled in a specific course.
 - Details of all projects undertaken within a specific timeframe.
 
