@@ -167,6 +167,13 @@ The database consists of the following tables (see [schema](schema.png)):
 ## Queries and Reports
 
 You can run various SQL queries to generate reports, such as:
+- Balance of every customer for a selected academic year ([balance table](queries/balance.sql))
+
+  | customer name | customer surname | credit | debit | balance |
+  |---------------|------------------|--------|-------|---------|
+  | ... | ... | ... | ... | ... |
+  | ... | ... | ... | ... | ... |
+  
 - Total income and expenses for a given period.
 - List of students enrolled in a specific course.
 - Details of all projects undertaken within a specific timeframe.
