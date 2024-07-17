@@ -1,10 +1,14 @@
+-- replace the {start} with the start date of the selected academic year ('YYYY-MM-DD')
+-- replace the {stop} with the end date of the selected academic year ('YYYY-MM-DD')
+-- replace the {acad_year} with the selected academic year ('YYYY-YYYY')
+
 DROP TABLE IF EXISTS debit_projects;
 DROP TABLE IF EXISTS debit_hourly;
 DROP TABLE IF EXISTS debit_monthly;
 DROP TABLE IF EXISTS debit_summer;
 DROP TABLE IF EXISTS credit;
 
--- Χρεώσεις από εργασίες
+-- Project fees
 SELECT customer_id, price AS debit 
 	INTO TEMP debit_projects
 FROM projects 
@@ -12,21 +16,21 @@ FROM projects
 		AND submission_date >= {start}
 		AND submission_date <= {stop};
 
--- Χρεώσεις μαθήματα ανά ώρα
+-- Course fees charged hourly
 SELECT cust.customer_id, SUM(ROUND(r.duration*(1-s.discount)*lp.price,2)) AS debit
 	INTO TEMP debit_hourly
 FROM records AS r
 LEFT JOIN students AS s ON s.student_id = r.student_id
 LEFT JOIN learning_plans AS lp ON lp.plan_id = s.plan_id
 LEFT JOIN customers AS cust ON cust.customer_id = s.parent_id
-WHERE lp.charge_type='ανά ώρα'
+WHERE lp.charge_type='hourly'
 	AND r.record_date >= {start}
 	AND r.record_date <= {stop}
 	AND lp.acad_year = {acad_year}
 	AND s.acad_year = {acad_year}
 GROUP BY cust.customer_id;
 
--- Χρεώσεις μαθήματα ανά μήνα
+-- Course fees charged monthly
 SELECT n_tab.customer_id, SUM(n_tab.months*n_tab.debit) AS debit
 	INTO TEMP debit_monthly
 FROM
@@ -47,27 +51,27 @@ ROUND(lp.price*(1-s.discount),2) AS debit
 FROM students AS s
 LEFT JOIN learning_plans AS lp ON lp.plan_id = s.plan_id
 LEFT JOIN customers AS cst ON cst.customer_id = s.parent_id
-WHERE lp.charge_type = 'ανά μήνα'
+WHERE lp.charge_type = 'monthly'
 	AND lp.acad_year = {acad_year}
 	AND s.acad_year = {acad_year})
 AS n_tab
 GROUP BY n_tab.customer_id;
 
---Χρεώσεις από θερινά μαθήματα
+-- Fees from summer courses
 SELECT cst.customer_id, ROUND(lp.price*(1-s.discount)*1.5,2) AS debit
 	INTO TEMP debit_summer
 FROM records AS r
 LEFT JOIN students AS s ON s.student_id = r.student_id
 LEFT JOIN learning_plans AS lp ON lp.plan_id = s.plan_id
 LEFT JOIN customers AS cst ON cst.customer_id = s.parent_id
-WHERE lp.charge_type = 'ανά μήνα' 
+WHERE lp.charge_type = 'monthly' 
 	AND r.record_date >= {start} 
 	AND r.record_date <= timestamp {start} + interval '9 weeks'
 	AND lp.acad_year = {acad_year}
 	AND s.acad_year = {acad_year}
 GROUP BY cst.customer_id, debit;
 
--- Πιστώσεις
+-- Credits
 SELECT customer_id, SUM(amount) AS credit
 	INTO TEMP credit
 FROM income
@@ -75,10 +79,11 @@ WHERE paydate >={start}
 	AND paydate <= date_trunc('month',CURRENT_DATE)+interval '1 month'
 GROUP BY customer_id;
 
+-- The final table
 SELECT customers.customer_name,customers.surname,
  round(raw_balance.debit,1) AS debit, 
  round(raw_balance.credit,1) AS credit, 
- round(raw_balance.debit-raw_balance.credit,1) AS res  
+ round(raw_balance.debit-raw_balance.credit,1) AS res
  FROM
 (SELECT debit.customer_id,
 	CASE WHEN debit.debit ISNULL THEN 0.0 ELSE debit.debit END, 
