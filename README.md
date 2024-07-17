@@ -176,12 +176,7 @@ You can run various SQL queries to generate reports, such as:
   
 - Monthly revenue ([open query](queries/income.sql)) and cost ([open query](queries/cost.sql)) for the selected academic year
   
-   | month | income |
-   |-------|------|
-   | ... | ... |
-   | ... | ... |
-  
-   | month | cost |
+   | month | income / cost |
    |-------|------|
    | ... | ... |
    | ... | ... |
