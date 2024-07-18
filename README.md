@@ -36,6 +36,7 @@ The database consists of the following tables (see [schema](schema.png)):
 ## Table Descriptions
 
 ### projects
+
 | Column Name     | Data Type | Description |
 |-----------------|-----------|-------------|
 | project_id      | INT       | The unique ID of the project (Primary Key) |
@@ -46,6 +47,7 @@ The database consists of the following tables (see [schema](schema.png)):
 | submission_date | DATE      | The date of taking over the project |
 
 ### learning_plans
+
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
 | plan_pkey   | INT       | Learning plan primary key |
@@ -58,6 +60,7 @@ The database consists of the following tables (see [schema](schema.png)):
 | acad_year   | VARCHAR   | The academic year of the learning plan |
 
 ### courses
+
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
 | course_id   | INT       | The unique ID of the course (Primary Key) |
@@ -66,6 +69,7 @@ The database consists of the following tables (see [schema](schema.png)):
 | rank        | VARCHAR   | Middle School, High School, Undergraduate, Postgraduate |
 
 ### payments
+
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
 | payment_pkey| INT       | Payment primary key |
@@ -77,6 +81,7 @@ The database consists of the following tables (see [schema](schema.png)):
 | status      | VARCHAR   | The status of the payment ('pending','paid') |
 
 ### income
+
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
 | income_pkey | INT       | Income primary key |
@@ -87,6 +92,7 @@ The database consists of the following tables (see [schema](schema.png)):
 | paydate     | DATE      | The date of the transaction |
 
 ### records
+
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
 | record_pkey | INT       | Record primary key |
@@ -96,6 +102,7 @@ The database consists of the following tables (see [schema](schema.png)):
 | course_id   | INT       | The course ID from the courses table (Foreign Key) |
 
 ### students
+
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
 | student_pkey| INT       | Student primary key |
@@ -116,6 +123,7 @@ The database consists of the following tables (see [schema](schema.png)):
 | acad_year   | VARCHAR   | The academic year in which the student was enrolled |
 
 ### customers
+
 | Column Name | Data Type | Description |
 |---------------|-----------|-------------|
 | customer_id   | INT       | The unique ID of the customer (Primary Key) |
