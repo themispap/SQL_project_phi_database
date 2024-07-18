@@ -153,10 +153,17 @@ The database consists of the following tables (see [schema](schema.png)):
    cd phi-maths-stats-lab-dashboard
    ```
 3. Set up the database:
-   - Create a new database using your preferred database management system (e.g., MySQL, PostgreSQL).
-   - Run the provided SQL script to create the tables and insert initial data:
+   - Create a new PostgreSQL database:
+     ```sql
+     CREATE DATABASE phi_maths_stats_lab;
+     ```
+   - Connect to the database:
      ```bash
-     mysql -u username -p database_name < setup.sql
+     psql -d phi_maths_stats_lab
+     ```
+   - Run the provided SQL script to create the tables and insert initial data:
+     ```sql
+     \i setup.sql
      ```
 4. Configure the database connection in your application.
 
