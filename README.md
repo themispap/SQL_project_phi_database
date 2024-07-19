@@ -189,7 +189,7 @@ You can run various SQL queries to generate reports, such as:
   | ... | ... | ... | ... | ... |
   | ... | ... | ... | ... | ... |
   
-- Monthly revenue ([open query](https://github.com/themispap/SQL_project_phi_database/raw/main/queries/income.sql)) and cost ([open query](https://github.com/themispap/SQL_project_phi_database/raw/main/queries/cost.sql)) for the selected academic year
+- Monthly revenue ([open query](https://raw.githubusercontent.com/themispap/SQL_project_phi_database/raw/main/queries/income.sql)) and cost ([open query](https://raw.githubusercontent.com/themispap/SQL_project_phi_database/raw/main/queries/cost.sql)) for the selected academic year
   
    | month | income / cost |
    |-------|------|
