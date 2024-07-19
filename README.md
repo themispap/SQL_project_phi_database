@@ -182,14 +182,14 @@ The database consists of the following tables (see [schema](schema.png)):
 ## Queries and Reports
 
 You can run various SQL queries to generate reports, such as:
-- Balance of every customer for the selected academic year ([open query](queries/balance.sql))
+- Balance of every customer for the selected academic year ([open query](https://raw.githubusercontent.com/themispap/SQL_project_phi_database/main/queries/balance.sql))
 
   | customer name | customer surname | credit | debit | balance |
   |---------------|------------------|--------|-------|---------|
   | ... | ... | ... | ... | ... |
   | ... | ... | ... | ... | ... |
   
-- Monthly revenue ([open query](queries/income.sql)) and cost ([open query](queries/cost.sql)) for the selected academic year
+- Monthly revenue ([open query](https://github.com/themispap/SQL_project_phi_database/raw/main/queries/income.sql)) and cost ([open query](https://github.com/themispap/SQL_project_phi_database/raw/main/queries/cost.sql)) for the selected academic year
   
    | month | income / cost |
    |-------|------|
