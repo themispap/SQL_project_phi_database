@@ -154,11 +154,11 @@ The database consists of the following tables (see [schema](schema.png)):
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/phi-maths-stats-lab-dashboard.git
+   git clone https://github.com/your-username/SQL_project_phi_database.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd phi-maths-stats-lab-dashboard
+   cd SQL_project_phi_database
    ```
 3. Set up the database:
    - Create a new PostgreSQL database:
