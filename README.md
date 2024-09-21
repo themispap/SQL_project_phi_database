@@ -52,7 +52,7 @@ The database consists of the following tables (see [schema](schema.png)):
 
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
-| plan_pkey   | SERIAL    | Learning plan primary key |
+| plan_pkey   | SERIAL    | Learning plan primary key (Primary Key) |
 | plan_id     | INT       | The ID of the learning plan (Unique) |
 | price       | DECIMAL   | The price of the learning plan |
 | description | VARCHAR   | The description of the learning plan |
@@ -74,7 +74,7 @@ The database consists of the following tables (see [schema](schema.png)):
 
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
-| payment_pkey| SERIAL    | Payment primary key |
+| payment_pkey| SERIAL    | Payment primary key (Primary Key) |
 | amount      | DECIMAL   | The monetary amount of the transaction |
 | cause       | VARCHAR   | The reason for the transaction |
 | category    | VARCHAR   | The category of the payment |
@@ -86,7 +86,7 @@ The database consists of the following tables (see [schema](schema.png)):
 
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
-| income_pkey | SERIAL    | Income primary key |
+| income_pkey | SERIAL    | Income primary key (Primary Key) |
 | amount      | DECIMAL   | The monetary amount of the transaction |
 | customer_id | INT       | The customer ID from the customers table (Foreign Key) |
 | cause       | VARCHAR   | The reason for the transaction |
@@ -97,7 +97,7 @@ The database consists of the following tables (see [schema](schema.png)):
 
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
-| record_pkey | SERIAL    | Record primary key |
+| record_pkey | SERIAL    | Record primary key (Primary Key) |
 | record_date | DATE      | The date of the course |
 | duration    | INT       | The duration of the course |
 | student_id  | INT       | The student ID from the students table (Foreign Key) |
@@ -107,9 +107,9 @@ The database consists of the following tables (see [schema](schema.png)):
 
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
-| student_pkey| SERIAL    | Student primary key |
+| student_pkey| SERIAL    | Student primary key (Primary Key) |
 | signup_date | DATE      | The enrollment date of the student |
-| student_id  | INT       | The unique ID of the student (Primary Key) |
+| student_id  | INT       | The unique ID of the student |
 | student_name| VARCHAR   | The name of the student |
 | surname     | VARCHAR   | The surname of the student |
 | mobile      | VARCHAR   | The mobile phone number of the student |
