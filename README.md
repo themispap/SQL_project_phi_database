@@ -39,7 +39,7 @@ The database consists of the following tables (see [schema](schema.png)):
 
 | Column Name     | Data Type | Description |
 |-----------------|-----------|-------------|
-| project_id      | INT       | The unique ID of the project (Primary Key) |
+| project_id      | SERIAL    | The unique ID of the project (Primary Key) |
 | subject         | VARCHAR   | The subject of the project |
 | customer_id     | INT       | The customer ID from the customers table (Foreign Key) |
 | price           | DECIMAL   | The price charged for the project |
@@ -50,8 +50,8 @@ The database consists of the following tables (see [schema](schema.png)):
 
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
-| plan_pkey   | INT       | Learning plan primary key |
-| plan_id     | INT       | The ID of the learning plan |
+| plan_pkey   | SERIAL    | Learning plan primary key |
+| plan_id     | INT       | The ID of the learning plan (Unique) |
 | price       | DECIMAL   | The price of the learning plan |
 | description | VARCHAR   | The description of the learning plan |
 | charge_type | VARCHAR   | Billing type (monthly, hourly) |
@@ -63,7 +63,7 @@ The database consists of the following tables (see [schema](schema.png)):
 
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
-| course_id   | INT       | The unique ID of the course (Primary Key) |
+| course_id   | SERIAL    | The unique ID of the course (Primary Key) |
 | course_name | VARCHAR   | The name (title) of the course |
 | grade       | VARCHAR   | 1st, 2nd, etc. |
 | rank        | VARCHAR   | Middle School, High School, Undergraduate, Postgraduate |
@@ -72,7 +72,7 @@ The database consists of the following tables (see [schema](schema.png)):
 
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
-| payment_pkey| INT       | Payment primary key |
+| payment_pkey| SERIAL    | Payment primary key |
 | amount      | DECIMAL   | The monetary amount of the transaction |
 | cause       | VARCHAR   | The reason for the transaction |
 | category    | VARCHAR   | The category of the payment |
@@ -84,7 +84,7 @@ The database consists of the following tables (see [schema](schema.png)):
 
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
-| income_pkey | INT       | Income primary key |
+| income_pkey | SERIAL    | Income primary key |
 | amount      | DECIMAL   | The monetary amount of the transaction |
 | customer_id | INT       | The customer ID from the customers table (Foreign Key) |
 | cause       | VARCHAR   | The reason for the transaction |
@@ -95,7 +95,7 @@ The database consists of the following tables (see [schema](schema.png)):
 
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
-| record_pkey | INT       | Record primary key |
+| record_pkey | SERIAL    | Record primary key |
 | record_date | DATE      | The date of the course |
 | duration    | INT       | The duration of the course |
 | student_id  | INT       | The student ID from the students table (Foreign Key) |
@@ -105,7 +105,7 @@ The database consists of the following tables (see [schema](schema.png)):
 
 | Column Name | Data Type | Description |
 |-------------|-----------|-------------|
-| student_pkey| INT       | Student primary key |
+| student_pkey| SERIAL    | Student primary key |
 | signup_date | DATE      | The enrollment date of the student |
 | student_id  | INT       | The unique ID of the student (Primary Key) |
 | student_name| VARCHAR   | The name of the student |
@@ -116,7 +116,7 @@ The database consists of the following tables (see [schema](schema.png)):
 | rank        | VARCHAR   | Middle School, High School, Undergraduate, Postgraduate |
 | school      | VARCHAR   | The school the student attends |
 | parent_id   | INT       | The customer ID from the customers table (Foreign Key) |
-| plan_id     | INT       | The plan ID from the plans table (Foreign Key) |
+| plan_id     | INT       | The plan ID from the learning_plans table (Foreign Key) |
 | discount    | DECIMAL   | The discount given to the student |
 | cohort      | VARCHAR   | The class in which the student is enrolled |
 | del_date    | DATE      | The student's deletion date |
@@ -126,7 +126,7 @@ The database consists of the following tables (see [schema](schema.png)):
 
 | Column Name | Data Type | Description |
 |---------------|-----------|-------------|
-| customer_id   | INT       | The unique ID of the customer (Primary Key) |
+| customer_id   | SERIAL    | The unique ID of the customer (Primary Key) |
 | customer_name | VARCHAR   | The name of the customer |
 | surname       | VARCHAR   | The surname of the customer |
 | mobile        | VARCHAR   | The mobile phone number of the customer |
@@ -138,7 +138,7 @@ The database consists of the following tables (see [schema](schema.png)):
 | city          | VARCHAR   | The city the customer lives in |
 | lat           | DECIMAL   | The latitude of the customer's address |
 | lon           | DECIMAL   | The longitude of the customer's address |
-| active        | BOOL      | Whether a customer is active or not |
+| active        | BOOLEAN   | Whether a customer is active or not |
 
 ## Data Flow
 
@@ -171,7 +171,7 @@ The database consists of the following tables (see [schema](schema.png)):
      ```
    - Run the provided SQL script to create the tables and insert initial data:
      ```sql
-     \i setup.sql
+     \i schema.sql
      ```
 4. Configure the database connection in your application.
 
@@ -186,15 +186,15 @@ You can run various SQL queries to generate reports, such as:
 
   | customer name | customer surname | credit | debit | balance |
   |---------------|------------------|--------|-------|---------|
-  | ... | ... | ... | ... | ... |
-  | ... | ... | ... | ... | ... |
+  | ...           | ...              | ...    | ...   | ...     |
+  | ...           | ...              | ...    | ...   | ...     |
   
 - Monthly revenue ([open query](https://raw.githubusercontent.com/themispap/SQL_project_phi_database/raw/main/queries/income.sql)) and cost ([open query](https://raw.githubusercontent.com/themispap/SQL_project_phi_database/raw/main/queries/cost.sql)) for the selected academic year
   
    | month | income / cost |
-   |-------|------|
-   | ... | ... |
-   | ... | ... |
+   |-------|---------------|
+   | ...   | ...           |
+   | ...   | ...           |
   
 - List of students enrolled in a specific course.
 - Details of all projects undertaken within a specific timeframe.
@@ -202,3 +202,5 @@ You can run various SQL queries to generate reports, such as:
 Example queries are provided in the `queries` folder.
 
 ## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
